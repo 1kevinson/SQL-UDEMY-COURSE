@@ -78,6 +78,7 @@ UPDATE people SET email='patrick@mmail.com' WHERE name='Patrick';
 ----------------
 -- EXERCICE 2 --
 ----------------
+-- v1
 SELECT * , (2021 - birth_date) AS age FROM people;
 -- v2
 SELECT * , CONCAT((2021 - birth_date), ' ' ,'ans') AS 'age des employés'
