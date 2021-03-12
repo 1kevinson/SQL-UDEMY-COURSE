@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS posts (
     id INT PRIMARY KEY AUTO_INCREMENT,
     content VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
-    CONSTRAINT FK_PostUser FOREIGN KEY (user_id) REFERENCES users (id);
+    CONSTRAINT FK_PostUser FOREIGN KEY (user_id) REFERENCES users (id); -- ON DELETE CASCADE
 );
 
 -- Créer des clés etrangères
