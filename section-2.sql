@@ -42,6 +42,41 @@ DROP TABLE employees;
 DROP DATABASE employees;
 
 
+----------------
 -- EXERCICE 1 --
+----------------
+CREATE DATABASE IF NOT EXISTS mydatabase;
+
+USE mydatabase;
+
+CREATE TABLE IF NOT EXISTS people (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50),
+  email VARCHAR(50),
+  birth_date YEAR
+);
+
+INSERT INTO people (last_name, first_name, birth_date, photo_url)
+VALUES 
+    ('Graig','graig@mmail.com',1981),
+    ('Annabelle','annabelle@mmail.com',1982),
+    ('Rose','rose@mmail.com',1983),
+    ('Mathilde','mathilde@mmail.com',1984),
+    ('Henry','henry@mmail.com',1985),
+    ('Jack','jack@mmail.com',1986),
+    ('Naruto','naruto@mmail.com',1987),
+    ('Peter','peter@mmail.com',1988),
+    ('Mathieu','mathieu@mmail.com',1988),
+    ('James','james@mmail.com',1990);
+
+SELECT * FROM people;
+
+UPDATE people SET name='Patrick' WHERE id=10;
+
+SELECT * FROM people;
+
+----------------
+-- EXERCICE 2 --
+----------------
 SELECT * , (2021 - birth_date) AS age
-FROM employees;
+FROM people;
