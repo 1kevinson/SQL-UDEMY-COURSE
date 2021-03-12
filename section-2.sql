@@ -1,11 +1,13 @@
 -- Créer une base de données d'une entreprise
 -- Montrer avec IF NOT EXISTS et sans
-CREATE IF NOT EXISTS DATABASE company;
+CREATE DATABASE IF NOT EXISTS company;
 
 -- Selectionner la base de données à utiliser pour les prochaines requêtes
+ -- apres avoir crée la base de données dire à quoi sert la commande USE
 USE company;
 
 -- Créer la table pour stocker les données des employés
+    -- montrer la table crée
 CREATE TABLE IF NOT EXISTS employees (
   id INT PRIMARY KEY AUTO_INCREMENT,
   last_name VARCHAR(255),
@@ -17,10 +19,10 @@ CREATE TABLE IF NOT EXISTS employees (
 -- Insérer des données dans une table
 INSERT INTO employees (last_name, first_name, birth_date, photo_url)
 VALUES 
-    ('Davolio','Nancy','1998','https://www.avatar-zone-employee12ED45.png'),
-    ('Fuller','Andrew','1999','https://www.avatar-zone-employee12ED35.png'),
-    ('Leverling','Janet','2000','https://www.avatar-zone-employee12ED65.png'),
-    ('Suyama','Michael','1887','https://www.avatar-zone-employee12ED75.png');
+    ('Davolio','Nancy',1998,'https://www.avatar-zone-employee12ED45.png'),
+    ('Fuller','Andrew',1999,'https://www.avatar-zone-employee12ED35.png'),
+    ('Leverling','Janet',2000,'https://www.avatar-zone-employee12ED65.png'),
+    ('Suyama','Michael',1980,'https://www.avatar-zone-employee12ED75.png');
 
 -- Recupérer toutes les données dans notre base de données
     -- Montrer que les Id sont autogénérés
@@ -37,7 +39,7 @@ DROP TABLE employees;
 
 -- Supprimer une base de données
     -- montrer que la BDD a bien été supprimée
-DROP TABLE employees;
+DROP DATABASE employees;
 
 
 -- EXERCICE 1 --
