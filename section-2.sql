@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS people (
   birth_date YEAR
 );
 
-INSERT INTO people (last_name, first_name, birth_date, photo_url)
+INSERT INTO people (name, email, birth_date)
 VALUES 
     ('Graig','graig@mmail.com',1981),
     ('Annabelle','annabelle@mmail.com',1982),
@@ -72,11 +72,13 @@ VALUES
 SELECT * FROM people;
 
 UPDATE people SET name='Patrick' WHERE id=10;
-
-SELECT * FROM people;
+-- mettre à jour l'email en demo
+UPDATE people SET email='patrick@mmail.com' WHERE name='Patrick';
 
 ----------------
 -- EXERCICE 2 --
 ----------------
-SELECT * , (2021 - birth_date) AS age
+SELECT * , (2021 - birth_date) AS age FROM people;
+-- v2
+SELECT * , CONCAT((2021 - birth_date), ' ' ,'ans') AS 'age des employés'
 FROM people;
