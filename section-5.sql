@@ -47,7 +47,7 @@ VALUES
     ('Perferendis cumque eligendi.', 2),
     ('Perferendis cumque ullam.', 3);
  
-INSERT INTO comments (comment_content, user_id, photo_id)
+INSERT INTO comments (comment_content, user_id, post_id)
 VALUES
     ('Quo velit iusto ducimus quos a incidunt nesciunt facilis.', 2, 4),
     ('Non est totam.', 5, 5),
