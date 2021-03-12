@@ -8,6 +8,7 @@ USE company;
 
 -- Créer la table pour stocker les données des employés
     -- montrer la table crée
+    -- montrer aussi le colonnes auto générées
 CREATE TABLE IF NOT EXISTS employees (
   id INT PRIMARY KEY AUTO_INCREMENT,
   last_name VARCHAR(255),
