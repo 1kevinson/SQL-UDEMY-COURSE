@@ -1,7 +1,7 @@
 -- Socia app database 
 -- Posts, Comments, Users, Likes
 
--- Les ID aauto générés
+-- Les ID auto générés
 CREATE TABLE IF NOT EXISTS users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL

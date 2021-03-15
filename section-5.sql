@@ -18,11 +18,11 @@ CREATE TABLE comments (
  
 INSERT INTO users (username) 
 VALUES 
-    ('Reyna.Marvin'),
-    ('Micah.Cremin'),
-    ('Alfredo66'),
-    ('Gerard_Mitchell42'),
-    ('Frederique_Donnelly');
+    ('Francois Pat'),
+    ('Dorian Grey'),
+    ('Mateo Lantern'),
+    ('Gerard Mitchell '),
+    ('Frederique Donnelly');
  
 INSERT INTO posts (post_content, user_id)
 VALUES
