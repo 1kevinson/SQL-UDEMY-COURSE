@@ -18,7 +18,8 @@ VALUES
 CREATE TABLE IF NOT EXISTS posts (
     id INT PRIMARY KEY AUTO_INCREMENT,
     content VARCHAR(255) NOT NULL,
-    user_id INT REFERENCES users (id); -- ON DELETE CASCADE
+    user_id INT ,
+    FOREIGN KEY (user_id) REFERENCES users (id); -- ON DELETE CASCADE
 );
 
 -- Créer des clés etrangères
