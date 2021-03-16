@@ -1,5 +1,5 @@
 -- Socia app database 
--- Posts, Comments, Users, Likes
+-- Posts, Comments, Users, Likes (expliain with twitter screenshots )
 
 -- Les ID auto générés
 CREATE TABLE IF NOT EXISTS users (
@@ -39,3 +39,44 @@ VALUES
 INSERT INTO posts (content, user_id)
 VALUES 
     ('lorem ipsum 56R3r',6666);
+
+-- Créer et utiliser des clés étrangères
+----------------
+-- EXERCICE 6 --
+----------------
+-- Creer une relation One-to-Many entre un customer et des orders dans une BDD ecommerce
+-- un client (customer) peut créer plusieurs commandes, mais une commande (order) ne peut être associée qu'à un seul client.
+CREATE DATABASE IF NOT EXISTS ecommerce;
+
+USE ecommerce;
+
+CREATE TABLE IF NOT EXISTS customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    phone INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    description VARCHAR(200) NOT NULL,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customer (id)
+);
+
+-- Tester en créeant 2 clients
+INSERT INTO customers (name, phone)
+VALUES 
+    ('blake',0544323344),
+    ('blade',0644323344);
+
+INSERT INTO orders (description, customer_id)
+VALUES 
+    ('iphone',1),
+    ('ipad',2),
+    ('nintendo switch',1);
+
+SELECT * FROM orders WHERE customer_id = 1;
+
+DROP database ecommerce;
+
+-- Ressources pour tester les contraintes liées à la suppression

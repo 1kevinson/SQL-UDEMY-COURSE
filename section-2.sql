@@ -28,10 +28,19 @@ VALUES
 -- Recupérer toutes les données dans notre base de données
     -- Montrer que les Id sont autogénérés
 SELECT * FROM employees;
+SELECT last_name, birth_date FROM employees;
+
+-- mise à jour des données
+UPDATE employees 
+SET birth_date = 1997 
+WHERE last_name = 'Fuller';
 
 -- Supprimer les données dans une table
-    -- Tester et montrer que la table a été purgée 
-    -- Remettre les données et repurger
+DELETE FROM employees WHERE last_name = 'Suyama';
+DELETE FROM employees WHERE id = 1;
+
+-- Tester et montrer que la table a été purgée 
+-- Remettre les données et repurger
 TRUNCATE TABLE employees;
 
 -- Supprimer une table
