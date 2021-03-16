@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS employees (
 );
 
 -- Insérer des données dans une table
-INSERT INTO employees (last_name, first_name, birth_date, photo_url)
+INSERT INTO employees (lastname, firstname, birthdate, photo_url)
 VALUES 
     ('Davolio','Nancy',1998,'https://www.avatar-zone-employee12ED45.png'),
     ('Fuller','Andrew',1999,'https://www.avatar-zone-employee12ED35.png'),
@@ -55,9 +55,9 @@ DROP DATABASE employees;
 ----------------
 -- EXERCICE 1 --
 ----------------
-CREATE DATABASE IF NOT EXISTS mydatabase;
+CREATE DATABASE IF NOT EXISTS city;
 
-USE mydatabase;
+USE city;
 
 CREATE TABLE IF NOT EXISTS people (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -91,5 +91,5 @@ UPDATE people SET email='patrick@mmail.com' WHERE name='Patrick';
 -- v1
 SELECT * , (2021 - birth_date) AS age FROM people;
 -- v2
-SELECT * , CONCAT((2021 - birth_date), ' ' ,'ans') AS 'age des employés'
+SELECT * , CONCAT((2021 - birth_date), ' ' ,'years old') AS 'age des employés'
 FROM people;
