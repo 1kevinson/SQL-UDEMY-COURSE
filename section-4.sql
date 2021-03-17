@@ -85,6 +85,8 @@ CREATE TABLE IF NOT EXISTS posts (
 );
 
 DELETE FROM users WHERE id = 1;
+
+
 ----------------------
 -- EXERCICE 6 Start --
 ----------------------
@@ -131,7 +133,3 @@ DROP database ecommerce;
 -- EXERCICE 6 End --
 ----------------------
 
--- Créer et utiliser des clés étrangères
-
-
--- Ressources pour tester les contraintes liées à la suppression

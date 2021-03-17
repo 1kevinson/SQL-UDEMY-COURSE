@@ -1,16 +1,16 @@
 -- Rajouter des données
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(50)
 );
  
-CREATE TABLE posts (
+CREATE TABLE IF NOT EXISTS posts (
   id INT PRIMARY KEY AUTO_INCREMENT,
   post_content VARCHAR(200),
   user_id INT REFERENCES users(id) ON DELETE CASCADE
 );
  
-CREATE TABLE comments (
+CREATE TABLE IF NOT EXISTS comments (
   id INT PRIMARY KEY AUTO_INCREMENT,
   comment_content VARCHAR(255),
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
@@ -153,4 +153,3 @@ VALUES
 
 
 
--- exercice 7,8,9,10,11,12
