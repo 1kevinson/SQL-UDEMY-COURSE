@@ -19,7 +19,7 @@ VALUES
     ('Jack','jack@mmail.com',1986),
     ('Naruto','naruto@mmail.com',1987),
     ('Peter','peter@mmail.com',1988),
-    ('Mathieu','mathieu@mmail.com',1988),
-    ('Patrick','patrick@mmail.com',1988);
+    ('Mathieu','mathieu@mmail.com',1989),
+    ('Patrick','patrick@mmail.com',1990);
 
 SELECT * FROM people;
