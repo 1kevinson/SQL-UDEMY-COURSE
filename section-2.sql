@@ -30,7 +30,7 @@ VALUES
 SELECT * FROM employees;
 SELECT last_name, birth_date FROM employees;
 
--- mise à jour des données
+-- Mise à jour des données
 UPDATE employees 
 SET birth_date = 1997 
 WHERE last_name = 'Fuller';
