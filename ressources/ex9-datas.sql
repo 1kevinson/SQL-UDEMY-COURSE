@@ -28,4 +28,4 @@ VALUES
 SELECT name, description, rating 
 FROM reviews 
 JOIN orders ON orders.id = reviews.order_id
-JOIN customers ON customers.id = reviews.reviewer_id AND customers.id = orders.customer_id;
+JOIN customers ON customers.id = reviews.reviewer_id AND customers.id = orders.customer_id; 

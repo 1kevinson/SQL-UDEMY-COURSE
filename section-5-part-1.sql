@@ -7,14 +7,17 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS posts (
   id INT PRIMARY KEY AUTO_INCREMENT,
   post_content VARCHAR(200),
-  user_id INT REFERENCES users(id) ON DELETE CASCADE
+  user_id INT ,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
  
 CREATE TABLE IF NOT EXISTS comments (
   id INT PRIMARY KEY AUTO_INCREMENT,
   comment_content VARCHAR(255),
-  user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  post_id INT REFERENCES posts(id) ON DELETE CASCADE
+  user_id INT, 
+  post_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE
 );
  
 INSERT INTO users (username) 
