@@ -8,22 +8,29 @@ SELECT post_content , comment_content
 FROM posts 
 JOIN comments ON posts.id = comments.post_id;
 
--- Données pour l'exercice 7
-INSERT INTO customers (name, phone)
-VALUES 
-    ('Marcel', '0544326344'),
-    ('Gregory', '0688323344'),
-    ('Julie', '0625477896'),
-    ('Agatha', '0748596232');
+-- Inner JOIN
+SELECT * 
+FROM posts 
+JOIN users
+ON posts.user_id = users.id;
 
+-- Left JOIN -- parler de l'ordre
+INSERT INTO users (username) 
+VALUES ('Arsene Kevin');
 
-INSERT INTO orders (description, customer_id)
-VALUES 
-    ('Apple Watch 5',1),
-    ('Harry potter le prince de sang mêlé : Livre',3),
-    ('Macbook Air',4),
-    ('PC Asus Rog',4),
-    ('L\'histoire sans fin : le DVD',5),
-    ('Macbook Pro',2),
-    ('Camera 4k',6),
-    ('Réfrigerateur',3);
+SELECT * 
+FROM users 
+LEFT JOIN posts
+ON posts.user_id = users.id;
+
+-- Right JOIN -- parler de l'ordre
+INSERT INTO posts (post_content, user_id) 
+VALUES ('empty post',NULL);
+
+SELECT * 
+FROM users 
+RIGHT JOIN posts
+ON posts.user_id = users.id;
+
+-- Full Join 
+-- n'est plus supporté par MySQL mais nous verrons une alternative plutard dans cette formation
