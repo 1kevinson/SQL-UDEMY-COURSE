@@ -3,6 +3,7 @@
 
 /* Why we change the DELIMETER
  * use (;) in the body of the stored procedure and $$ after the END keyword to end the stored procedure.
+ * because the default delimiter for MySQL is (;)
 */
 
 -- Example 1

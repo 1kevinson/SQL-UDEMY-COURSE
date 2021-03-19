@@ -1,4 +1,4 @@
--- simulate e-commerce application
+-- e-commerce application
 CREATE DATABASE IF NOT EXISTS ecommerce_app;
 
 USE ecommerce_app;
@@ -734,4 +734,4 @@ VALUES
   (36, 95, false),
   (3, 32, true);
 
-  -- exercice 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 
+
