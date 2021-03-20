@@ -34,3 +34,9 @@ UNION ALL
 
 
 -- DISTINCT
+-- Selectionner les départements uniques des produits
+SELECT DISTINCT department
+FROM products;
+
+SELECT DISTINCT department, name
+FROM products;
