@@ -1,11 +1,7 @@
 /*
-Ecrire une requête qui renvoie le nom et le prix de chaque produit,
-et renvoyer aussi dans une colonne le ratio entre prix du produit et
-le prix maximum de tous les produits. (price / max price), et renommer
-cette colonne price_ratio_max.
+Ecrire une requête qui permet de renvoyer une liste de noms de famille unique
+des users (utilisateurs).
 */
 
-SELECT name, price, price / (
-	SELECT MAX(price) FROM products
-) AS ID_PRICE_4
-FROM products;
+SELECT DISTINCT last_name
+FROM users;
