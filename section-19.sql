@@ -1,7 +1,7 @@
 -- MySQL Data Definition Schema
-CREATE DATABASE IF NOT EXISTS twitterDB;
+CREATE DATABASE IF NOT EXISTS twitter_db;
 
-USE twitterDB;
+USE twitter_db;
 
 CREATE TABLE IF NOT EXISTS users (
     id         INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS likes (
     CONSTRAINT FK_UserLike FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
     CONSTRAINT FK_TweetLike FOREIGN KEY (tweet_id) REFERENCES tweets (id) ON DELETE CASCADE,
     CONSTRAINT FK_CommentLike FOREIGN KEY (comment_id) REFERENCES comments (id) ON DELETE CASCADE,
-    UNIQUE(user_id, post_id, comment_id)
+    UNIQUE(user_id, tweet_id, comment_id)
 );
 
 CREATE TABLE IF NOT EXISTS tags (
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS hashtags_tweets(
     id            INT PRIMARY KEY AUTO_INCREMENT,
     hashtag_id    INT NOT NULL,
     tweet_id      INT NOT NULL,
-    CONSTRAINT FK_HashtagsTweet FOREIGN KEY (hashtag_id) REFERENCES hashtag (id) ON DELETE CASCADE,
+    CONSTRAINT FK_HashtagsTweet FOREIGN KEY (hashtag_id) REFERENCES hashtags (id) ON DELETE CASCADE,
     CONSTRAINT FK_Tweet_HashtagsTweet FOREIGN KEY (tweet_id) REFERENCES tweets (id) ON DELETE CASCADE,
     UNIQUE(hashtag_id, tweet_id)
 );
