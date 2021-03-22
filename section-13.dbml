@@ -1,0 +1,33 @@
+// TwitterDB dbml base file
+
+// a user has many comments
+Table users {
+    id int [pk, increment]
+    firstname varchar(30)
+    lastname varchar(30)
+    username varchar(30)
+    created_at timestamp
+    updated_at timestamp
+}
+
+// A tweet can be a photo or a content 
+// a tweet has many comments
+Table tweets {
+    id int [pk, increment]
+    t_content varchar(145)
+    photo_url varchar(255)
+    created_at timestamp
+    updated_at timestamp
+    user_id int [ref: > users.id]
+}
+
+Table comments {
+    id int [pk, increment]
+    c_content varchar(255)
+    created_at timestamp
+    updated_at timestamp
+    user_id int [ref: > users.id]
+    tweet_id int [ref: > tweets.id]
+}
+
+Table 
