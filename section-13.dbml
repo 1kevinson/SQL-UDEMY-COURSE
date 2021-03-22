@@ -1,4 +1,6 @@
 // TwitterDB dbml base file
+// Basic relations are made between these 3 tables
+
 
 // a user has many comments
 Table users {
@@ -29,5 +31,3 @@ Table comments {
     user_id int [ref: > users.id]
     tweet_id int [ref: > tweets.id]
 }
-
-Table 

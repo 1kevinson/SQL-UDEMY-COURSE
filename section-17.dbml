@@ -1,0 +1,14 @@
+// Hashtags
+
+Table hashtags {
+    id int [pk, increment]
+    title varchar(50)
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table hashtags_posts {
+    id int [pk, increment]
+    hashtag_id int [ref: > hashtags.id]
+    tweet_id int [ref: > tweets.id]
+}

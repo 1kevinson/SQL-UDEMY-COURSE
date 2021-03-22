@@ -1,0 +1,7 @@
+Table likes {
+    id int [pk, increment]
+    created_at timestamp
+    user_id int [ref: > users.id]
+    comment_id int [ref: > comments.id]
+    tweet_id int [ref: > tweets.id]
+}

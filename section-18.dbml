@@ -1,0 +1,6 @@
+Table followers {
+    id int [pk, increment]
+    created_at timestamp
+    leader_id int [ref: > users.id]
+    follower_id int [ref: > users.id]
+}
