@@ -48,4 +48,4 @@ SELECT * FROM employees_audit;
 UPDATE employees SET lastname = 'Arsene', email='kkarsene43@gmail.com' 
 WHERE firstname='Pender';
 
-DROP TRIGGER before_employee_update;
+DROP TRIGGER before_employee_update; 

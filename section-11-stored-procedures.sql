@@ -6,7 +6,7 @@
  * because the default delimiter for MySQL is (;)
 */
 
--- Example 1
+-- Example 1 --
 DELIMITER //
 
 CREATE PROCEDURE GetAllProducts()
@@ -25,31 +25,45 @@ DROP PROCEDURE GetAllProducts;
 
 
 -- Stored Procedure with In Parameter
--- Example 2
+-- Example 2 --
 DELIMITER //
 
-CREATE PROCEDURE GetOrderCountByStatus(
-	IN orderStatus VARCHAR(50),
-	OUT total INT
+CREATE PROCEDURE GetProductByDepartment(
+    IN department_name VARCHAR(50)
 )
 
 BEGIN
-    -- DECLARE total INT DEFAULT 0;
-	SELECT COUNT(orderNumber)
-	INTO total
-	FROM orders
-	WHERE status = orderStatus;
+    SELECT *
+    FROM products
+    WHERE department = department_name;
 END //
 
 DELIMITER ;
 
 -- Call a stored procedure
-CALL GetOrderCountByStatus('in process', @total);
+CALL GetProductByDepartment('Industrial');
 
-SELECT @total;
 
--- Delete stored procedure
-DROP PROCEDURE GetOrderCountByStatus;
+-- Stored Procedure with OUT Parameter
+-- Example 3 --
+DELIMITER $$
+
+CREATE PROCEDURE GetTotalOrderPaid(
+    OUT total_orders_paid INT
+)
+BEGIN
+    SELECT COUNT(*) 
+    INTO total_orders_paid
+    FROM orders 
+    WHERE paid = 1;
+END $$
+
+DELIMITER ;
+
+-- Call a stored procedure
+CALL GetTotalOrderPaid(@total_orders_paid);
+
+SELECT @total_orders_paid;
 
 -- Show procedure status
 SHOW PROCEDURE STATUS WHERE Db != 'sys';
