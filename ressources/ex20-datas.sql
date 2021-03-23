@@ -18,4 +18,4 @@ END //
 DELIMITER ;
 
 -- Appeler la procédure stockée
- CALL GetProductsInfosByPrice(65); 
+ CALL GetProductsInfosByPrice(50);
