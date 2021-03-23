@@ -1,2 +1,0 @@
--- ajouter quelques données
--- Exercice 25

@@ -1,50 +1,51 @@
--- Utiliser un trigger pour suivre les variations de prix et ainsi prévoir les 
--- previsions de ventes sur différents produits
+CREATE DATABASE test_triggers;
 
--- Créer une table d'audit
-CREATE TABLE IF NOT EXISTS products_audit(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    product_id INT NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    department VARCHAR(50) NOT NULL,
-    price_before INT NOT NULL,
-    price_after INT NOT NULL,
-    weight INT NOT NULL,
-    change_date DATETIME NOT NULL
+USE test_triggers;
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_number INT NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    officeCode VARCHAR(50) NOT NULL
 );
 
--- Créer le trigger pour tracker les changement de prix
--- Lancer avec la commande de tout le fichier de script
-DELIMITER //
+SELECT * FROM employees;
 
-CREATE TRIGGER after_product_price_update
-    AFTER UPDATE ON products
+CREATE TABLE employees_audit (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_number INT NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    change_date DATETIME DEFAULT NULL,
+    action VARCHAR(50) DEFAULT NULL
+);
+
+DROP TABLE employees_audit;
+
+CREATE TRIGGER before_employee_update 
+    BEFORE UPDATE ON employees
     FOR EACH ROW 
-BEGIN 
-    IF OLD.price <> NEW.price THEN
-        INSERT INTO products_audit (product_id, name, department, price_before, price_after, weight, change_date)
-        VALUES
-            (OLD.id, OLD.name, OLD.department, OLD.price, NEW.price, OLD.weight, NOW());
-    END IF;
-END//
-    
-DELIMITER ;
-
--- Selectionner le premier produit
-SELECT * FROM products WHERE id = 1;
-
--- Selectionner la table product audit
-SELECT * FROM products_audit;
-
--- Update du poids 
-UPDATE products SET weight = 32 WHERE id = 1;
-
--- Update du prix
-UPDATE products SET price = 800 WHERE id = 1;
-
--- Update par erreur de tous les prix
-UPDATE products SET price = 200;
-
+INSERT INTO employees_audit
+SET action = 'update',
+	employee_number = OLD.employee_number,
+ 	lastname = OLD.lastname,
+ 	firstname = OLD.firstname,
+ 	email = OLD.email,
+ 	change_date = NOW();
+ 
 SHOW triggers;
 
-DROP TRIGGER before_employee_update;
+INSERT INTO employees (employee_number, lastname, firstname, email, officeCode)
+VALUES
+	(1300, 'Graig', 'Pender', 'kkpender@gmail.com', 'XCD99'),
+	(1301, 'Mathew', 'Valderne', 'kkvalderne@gmail.com', 'XCE32');
+	
+SELECT * FROM employees_audit;
+
+UPDATE employees SET lastname = 'Arsene', email='kkarsene43@gmail.com' 
+WHERE firstname='Pender';
+
+DROP TRIGGER before_employee_update; 

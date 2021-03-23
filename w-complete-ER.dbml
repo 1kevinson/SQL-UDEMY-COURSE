@@ -1,0 +1,70 @@
+// TwitterDB dbml base file
+
+Table users {
+    id int [pk, increment]
+    firstname varchar(30)
+    lastname varchar(30)
+    username varchar(30)
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table tweets {
+    id int [pk, increment]
+    t_content varchar(145)
+    photo_url varchar(255)
+    created_at timestamp
+    updated_at timestamp
+    user_id int [ref: > users.id]
+}
+
+Table comments {
+    id int [pk, increment]
+    c_content varchar(255)
+    created_at timestamp
+    updated_at timestamp
+    user_id int [ref: > users.id]
+    tweet_id int [ref: > tweets.id]
+}
+
+Table likes {
+    id int [pk, increment]
+    created_at timestamp
+    user_id int [ref: > users.id]
+    comment_id int [ref: > comments.id]
+    tweet_id int [ref: > tweets.id]
+}
+
+Table tags {
+    id int [pk, increment]
+    created_at timestamp
+    user_id int [ref: > users.id]
+    tweet_id int [ref: > tweets.id]
+}
+
+Table retweets {
+    id int [pk, increment]
+    created_at timestamp
+    user_id int [ref: > users.id]
+    tweet_id int [ref: > tweets.id]
+    comment_id int [ref: > comments.id]
+}
+
+Table hashtags {
+    id int [pk, increment]
+    title varchar(50)
+    created_at timestamp
+}
+
+Table hashtags_tweets {
+    id int [pk, increment]
+    hashtag_id int [ref: > hashtags.id]
+    tweet_id int [ref: > tweets.id]
+}
+
+Table followers {
+    id int [pk, increment]
+    created_at timestamp
+    leader_id int [ref: > users.id]
+    follower_id int [ref: > users.id]
+}
