@@ -11,6 +11,13 @@ Run the command to install
 CREATE DATABASE IF NOT EXISTS social_db;
 ```
 
+Change MySQL Authentication mode
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '77azerty';
+
+FLUSH PRIVILEGES;
+```
+
 ### Create folder for migration project 
 
 Run the command to install 
@@ -39,7 +46,7 @@ $ ls -l
 
 Install db-migrate
 ```
-$ sudo npm install -g db-migrate
+$ sudo npm install -g db-migrate db-migrate-mysql
 ```
 
 Check db-migrate is correctly installed
@@ -56,10 +63,16 @@ $ touch database.json
 
 configure the file
 ```json
-"dev": {
-    "driver": "sqlite3",
-    "filename": "~/dev.db"
-  },
+{
+    "dev": {
+        "host": "localhost",
+        "user": "root",
+        "password" : "77azerty",
+        "database": "social_db",
+        "driver": "mysql",
+        "multipleStatements": true
+      }
+}
 ```
 
 ### In the package.json file, make change on
@@ -73,4 +86,43 @@ configure the file
 Run the following command in the project folder, this will generate a new migration file in a new migrations folder.
 ```
 $ npm run migrate create table-comments
+```
+
+In the migrate file generated configure the migration process
+```js
+exports.up = function(db) {
+  return db.createTable('comments', {
+    columns: {
+      id: { 
+        type: 'int',
+        primaryKey: true,
+        notNull: true,
+        autoIncrement: true
+      },
+      createdAt: {
+        type: 'timestamp',
+        notNull: true
+      },
+      updatedAt:  {
+        type: 'timestamp',
+        notNull: true
+      },
+      content:  {
+        type: 'string',
+        notNull: true,
+        length: 255
+      }
+    },
+    ifNotExists: true
+  });
+};
+
+exports.down = function(db) {
+  return db.dropTable('comments');
+};
+```
+
+Then migration command to test
+```
+$ npm run migrate up
 ```

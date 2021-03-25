@@ -1,9 +1,9 @@
 {
     "dev": {
         "host": "localhost",
-        "user": "",
-        "password" : "",
-        "database": "",
+        "user": "root",
+        "password" : "77azerty",
+        "database": "social_db",
         "driver": "mysql",
         "multipleStatements": true
       }

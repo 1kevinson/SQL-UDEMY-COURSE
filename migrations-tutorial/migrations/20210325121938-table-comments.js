@@ -15,11 +15,34 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return null;
+  return db.createTable('comments', {
+    columns: {
+      id: { 
+        type: 'int',
+        primaryKey: true,
+        notNull: true,
+        autoIncrement: true
+      },
+      createdAt: {
+        type: 'timestamp',
+        notNull: true
+      },
+      updatedAt:  {
+        type: 'timestamp',
+        notNull: true
+      },
+      content:  {
+        type: 'string',
+        notNull: true,
+        length: 255
+      }
+    },
+    ifNotExists: true
+  });
 };
 
 exports.down = function(db) {
-  return null;
+  return db.dropTable('comments');
 };
 
 exports._meta = {
