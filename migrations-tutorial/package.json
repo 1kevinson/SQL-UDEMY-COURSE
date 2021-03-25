@@ -4,11 +4,8 @@
   "description": "Migration tutorial for udemy course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate": "db-migrate"
   },
   "author": "Arsene Kevin KOUOMEU",
-  "license": "MIT",
-  "dependencies": {
-    "db-migrate": "^0.11.12"
-  }
+  "license": "MIT"
 }
