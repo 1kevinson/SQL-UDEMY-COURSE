@@ -1,4 +1,5 @@
 ## Before all, install nodejs 
+___
 
 [Node js download link(FR)](https://nodejs.org/fr/)
 
@@ -6,6 +7,7 @@ The project is to create migration files for database social_db
 for table comments.
 
 ### Create a database in MySQL
+___
 Run the command to install 
 ```sql
 CREATE DATABASE IF NOT EXISTS social_db;
@@ -19,7 +21,7 @@ FLUSH PRIVILEGES;
 ```
 
 ### Create folder for migration project 
-
+___
 Run the command to install 
 ```
 $ mkdir migration-project
@@ -31,19 +33,19 @@ $ cd migration-project
 ```
 
 ### Create package.json file 
-
+___
 Run the command to generate package.json file 
 ```
 $ npm install
 ```
 
-Verify that npm is correctly installed
+Verify that the package.json is correctly generated
 ```
 $ ls -l
 ```
 
 ### Install db-migrate package
-
+___
 Install db-migrate
 ```
 $ sudo npm install -g db-migrate db-migrate-mysql
@@ -55,7 +57,7 @@ $ db-migrate
 ```
 
 ### Database configuration
-
+___
 Create a database.json config file in project root
 ```
 $ touch database.json
@@ -76,7 +78,7 @@ configure the file
 ```
 
 ### In the package.json file, make change on
-
+___
 ```json
 "scripts": {
     "migrate": "db-migrate"
@@ -88,7 +90,7 @@ Run the following command in the project folder, this will generate a new migrat
 $ npm run migrate create table-comments
 ```
 
-In the migrate file generated configure the migration process
+In the migration file generated configure the migration process
 ```js
 exports.up = function(db) {
   return db.createTable('comments', {
@@ -122,7 +124,38 @@ exports.down = function(db) {
 };
 ```
 
-Then migration command to test
+Then run migration command to apply migration
 ```
 $ npm run migrate up
+```
+
+Then run migration command to undo migration
+```
+$ npm run migrate down
+```
+
+### Create a second migration file
+___
+Then run migration command to undo migration
+```
+$ npm run migrate create rename-content-to-comment_content
+```
+
+In the second migration file generated configure the migration process
+```js
+exports.up = function(db) {
+  // db.renameColumn('tableName', 'oldColumnName', 'newColumnName');
+  return db.renameColumn('comments', 'content', 'comment_content');
+};
+
+exports.down = function(db) {
+  return db.renameColumn('comments', 'comment_content', 'content');
+};
+```
+
+In mysql check the changes
+```sql
+SHOW tables;
+
+DESC comments;
 ```
