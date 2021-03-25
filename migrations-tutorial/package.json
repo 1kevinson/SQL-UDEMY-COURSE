@@ -1,0 +1,14 @@
+{
+  "name": "migrations",
+  "version": "1.0.0",
+  "description": "Migration tutorial for udemy course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arsene Kevin KOUOMEU",
+  "license": "MIT",
+  "dependencies": {
+    "db-migrate": "^0.11.12"
+  }
+}
