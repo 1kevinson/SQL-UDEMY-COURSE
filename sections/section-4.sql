@@ -42,13 +42,16 @@ VALUES
     ('contenu 11', 4),
     ('lorem ipsum ', 3);
 
-SELECT name FROM users;
-
-SELECT * FROM posts
-WHERE user_id = 1;
-
 SELECT id, content FROM posts
 WHERE user_id = 1;
+
+SELECT * 
+FROM posts
+JOIN users ON users.id = posts.user_id;
+
+SELECT name, content 
+FROM posts
+JOIN users ON users.id = posts.user_id;
 
 -- Contrainte d'insertion clé étrangères
 INSERT INTO posts (content, user_id)
