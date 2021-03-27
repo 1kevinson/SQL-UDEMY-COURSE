@@ -1,6 +1,9 @@
 -- Socia Network app database 
 -- Posts, Comments, Users, Likes 
 
+--------
+-- Requêtes sur les données associées
+--------
 -- Créer la base de données de l'application de réseaux sociaux
 CREATE DATABASE IF NOT EXISTS social_app;
 
@@ -29,12 +32,6 @@ CREATE TABLE IF NOT EXISTS posts (
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
--- Inserer une premiere valeur
-INSERT INTO posts (content, user_id)
-VALUES 
-    ('La météo est bizarre ce matin', 3);
-
--- Requêtes sur les données associées
 -- Inserer des fakes datas;
 INSERT INTO posts (content, user_id)
 VALUES 
@@ -45,7 +42,12 @@ VALUES
     ('contenu 11', 4),
     ('lorem ipsum ', 3);
 
+SELECT name FROM users;
+
 SELECT * FROM posts
+WHERE user_id = 1;
+
+SELECT id, content FROM posts
 WHERE user_id = 1;
 
 -- Contrainte d'insertion clé étrangères
