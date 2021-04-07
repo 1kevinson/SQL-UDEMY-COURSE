@@ -3,6 +3,7 @@ SELECT user_id ,COUNT(id) AS 'number of comments'
 FROM comments
 GROUP BY user_id;
 
+-- Aller plus loin avec le grouping 
 -- le nombre de commentaires pour chaque photos
 SELECT post_id, COUNT(*)
 FROM comments 
