@@ -8,7 +8,7 @@ WHERE price > (
 	WHERE department = 'Sports'
 );
 
--- sous requete dans le SELECT (single value returned by subquerie)
+-- sous requete dans le SELECT (single value returned by subquery)
 SELECT name, price, (
 	SELECT price FROM products WHERE id = 4
 ) AS ID_PRICE_4
@@ -24,7 +24,7 @@ FROM (
 WHERE price_weight_ratio > 5;
 
 
--- sous-requete avec JOIN
+-- sous-requete avec la clause JOIN
 SELECT first_name 
 FROM users 
 JOIN (
