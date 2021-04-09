@@ -2,7 +2,7 @@
 -- Posts, Comments, Users, Likes 
 
 --------
--- Requêtes sur les données associées
+-- Les IDs auto générés
 --------
 -- Créer la base de données de l'application de réseaux sociaux
 CREATE DATABASE IF NOT EXISTS social_app;
@@ -42,8 +42,12 @@ VALUES
     ('contenu 11', 4),
     ('lorem ipsum ', 3);
 
+
+--------
+-- Requêtes sur les données associées
+--------
 SELECT id, content FROM posts
-WHERE user_id = 1;
+WHERE user_id = 3;
 
 SELECT * 
 FROM posts
@@ -67,7 +71,7 @@ VALUES
     ('pouet !', NULL);
 
 -- Contrainte liées à la suppression
-DROP TABLE IF EXISTS posts, users;
+DROP TABLE IF EXISTS posts, users;""
 
 -- 1 --
 -- recréer les tables users, posts et insérer les données dans users et posts ensuite -- 

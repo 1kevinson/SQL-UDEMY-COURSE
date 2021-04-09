@@ -7,8 +7,7 @@ CREATE TABLE IF NOT EXISTS reviews (
     order_id INT,
     FOREIGN KEY (reviewer_id) REFERENCES customers (id), 
     FOREIGN KEY (order_id) REFERENCES orders (id)    
-)
-
+);
 
 INSERT INTO reviews (rating, reviewer_id, order_id)
 VALUES 

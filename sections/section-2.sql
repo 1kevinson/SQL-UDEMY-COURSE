@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS employees (
 );
 
 -- Insérer des données dans une table
-INSERT INTO employees (lastname, firstname, birthdate, photo_url)
+INSERT INTO employees (last_name, first_name, birth_date, photo_url)
 VALUES 
     ('Davolio','Nancy',1998,'https://www.avatar-zone-employee12ED45.png'),
     ('Fuller','Andrew',1999,'https://www.avatar-zone-employee12ED35.png'),
@@ -76,7 +76,7 @@ VALUES
     ('Jack','jack@mmail.com',1986),
     ('Naruto','naruto@mmail.com',1987),
     ('Peter','peter@mmail.com',1988),
-    ('Mathieu','mathieu@mmail.com',1988),
+    ('Mathieu','mathieu@mmail.com',1989),
     ('James','james@mmail.com',1990);
 
 SELECT * FROM people;
