@@ -1,3 +1,6 @@
+----
+-- NULL & DEFAULT
+----
 -- Validation
 CREATE DATABASE IF NOT EXISTS validation_db;
 
@@ -34,7 +37,10 @@ DESC products;
 ALTER TABLE products 
 CHANGE price 
 	   price INT DEFAULT 0;
-	   
+
+----
+-- UNIQUE
+----	   
 -- ADD UNIQUE constraint on name column
 ALTER TABLE products 
 ADD CONSTRAINT uc_name
@@ -54,6 +60,9 @@ INSERT INTO products (name, department, price, weight)
 VALUES 
     ('jeans', 'Houseware', 35, 1);
 
+----
+-- CHECK
+----
 -- Add CHECK constraint on products table
 -- show constraint in DDL tab in product table
 ALTER TABLE products 
