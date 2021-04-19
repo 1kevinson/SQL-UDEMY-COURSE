@@ -1,5 +1,5 @@
 -- rechercher les 5 produits avec les prix les plus chers
--- et les 5 produits avec les ratio prix/poids élevés
+-- et les 5 produits avec les ratio prix/poids les plus élevés
 USE ecommerce_app;
 
 -- UNION (enlève les lignes dupliquées)
