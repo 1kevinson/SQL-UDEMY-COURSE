@@ -1,6 +1,6 @@
-CREATE DATABASE test_triggers;
+CREATE DATABASE trigger_db;
 
-USE test_triggers;
+USE trigger_db;
 
 CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,6 +10,11 @@ CREATE TABLE employees (
     email VARCHAR(50) NOT NULL,
     officeCode VARCHAR(50) NOT NULL
 );
+
+INSERT INTO employees (employee_number, lastname, firstname, email, officeCode)
+VALUES
+	(1300, 'Graig', 'Pender', 'kkpender@gmail.com', 'XCD99'),
+	(1301, 'Mathew', 'Valderne', 'kkvalderne@gmail.com', 'XCE32');
 
 SELECT * FROM employees;
 
@@ -22,8 +27,6 @@ CREATE TABLE employees_audit (
     change_date DATETIME DEFAULT NULL,
     action VARCHAR(50) DEFAULT NULL
 );
-
-DROP TABLE employees_audit;
 
 CREATE TRIGGER before_employee_update 
     BEFORE UPDATE ON employees
@@ -38,11 +41,6 @@ SET action = 'update',
  
 SHOW triggers;
 
-INSERT INTO employees (employee_number, lastname, firstname, email, officeCode)
-VALUES
-	(1300, 'Graig', 'Pender', 'kkpender@gmail.com', 'XCD99'),
-	(1301, 'Mathew', 'Valderne', 'kkvalderne@gmail.com', 'XCE32');
-	
 SELECT * FROM employees_audit;
 
 UPDATE employees SET lastname = 'Arsene', email='kkarsene43@gmail.com' 
